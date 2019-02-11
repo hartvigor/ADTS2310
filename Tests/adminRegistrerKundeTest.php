@@ -10,13 +10,14 @@ class adminRegistrerKundeTest extends PHPUnit\Framework\TestCase
         $admin = new Admin(new AdminDBStub());
         
         $kunde = new kunde();
-        $kunde->personnummer = 12889191;
+        $kunde->personnummer = "12889191";
         $kunde->fornavn = "Melfyn";
-        $kunde->etternavn = "Sir.Jenkins";
+        $kunde->etternavn = "Sir Jenkins";
         $kunde->adresse = "Tindergata 1";
-        $kunde->postnr = 0842;
+        $kunde->postnr = "0842";
         $kunde->poststed = "Oslo";
-        $kunde->telefonnr = 12346789;
+        $kunde->telefonnr = "12346789";
+        $kunde->passord = "TESTST";
         
         //act
         $res = $admin->registrerKunde($kunde);
