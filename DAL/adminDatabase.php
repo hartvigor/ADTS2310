@@ -136,6 +136,7 @@ class AdminDB
             die();
         } 
         
+        // hvorfor skal personnummer og kontonummer oppdateres/endres... til rapport
         $sql =  "Update Konto Set Personnummer = '$konto->personnummer', "
                 . "Kontonummer = '$konto->kontonummer', Type = '$konto->type', "
                 . "Saldo = '$konto->saldo', Valuta = '$konto->valuta' "

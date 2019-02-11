@@ -1,6 +1,6 @@
 <?php
 include_once '../DAL/adminDatabase.php';
-//include_once '../DAL/adminDatabaseStub.php';
+include_once '../DAL/adminDatabaseStub.php';
 class Admin
 {
     private $db;
