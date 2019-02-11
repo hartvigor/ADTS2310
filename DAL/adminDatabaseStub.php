@@ -44,6 +44,23 @@ class AdminDBStub
        return $alleKunder;
     }
     
+    function registrerKunde($kunde)
+    {
+        $persNr = array(01010110523, 12345678901);
+        
+        if (in_array($kunde->personnummer, $persNr))
+        {
+            return "Feil";
+        }
+        else
+        {
+            return "Ok";
+        }
+        
+        return "Feil";
+    }
+    
+    
     
     function endreKonto($konto)
     {
