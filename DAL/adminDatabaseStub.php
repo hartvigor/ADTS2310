@@ -25,7 +25,7 @@ class AdminDBStub
             $enKunde->adresse = $adresse;
             $enKunde->telefonnr = $telefonnr;
             return $enKunde;    
-
+    }
 
     function hentAlleKunder()
     {
