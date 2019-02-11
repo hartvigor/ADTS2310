@@ -4,7 +4,7 @@ include_once '../Model/domeneModell.php';
 
 class AdminDBStub
 {
-    private $db;
+    /*private $db;
     function __construct($innDb=null)
     {
         if($innDb==null)
@@ -15,7 +15,7 @@ class AdminDBStub
         {
             $this->db=$innDb;
         }
-    }
+    }*/
     
     // Usikker på om dette er riktig
     function TestEndreKundeInfo($personnummer, $navn, $adresse, $telefonnr){
