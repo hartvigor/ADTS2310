@@ -14,7 +14,7 @@
         function hentKundeInfo($personnummer)
         {
             switch ($personnummer) {
-                case 01010122346: //ikke riktig 
+                case 010101223444: //ikke riktig 
                     return "Feil personnummer";
                 case 01010122344:
                     $enKunde = new kunde();
@@ -26,13 +26,10 @@
                     $enKunde->poststed = "Oslo";
                     $enKunde->telefonnr = "12345678";
                     $enKunde->passord = "HeiHei";
-                    return $enKunde;
-                    break;
-                case $enKunde->postnr = "": //ikke riktig (tomt)postnr
-                        return "Feil postnummer";
+                    return $enKunde;                    
+                case 01010122344:
+                    return "Feil postnummer";
                 default:
-                    $enKunde = new kunde();
-                    return $enKunde;
                     break;
             }
            
