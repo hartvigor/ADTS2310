@@ -1,4 +1,7 @@
 
+CREATE DATABASE IF NOT EXISTS Bank;
+USE Bank;
+
 
 --
 -- Database: `Bank` DENNE MÅ VÆRE OPPRETTET FØR SCRIPTET KJØRES !!!
