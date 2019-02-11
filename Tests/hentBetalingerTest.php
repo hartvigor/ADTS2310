@@ -68,8 +68,8 @@ class hentBetalingerTest extends PHPUnit\Framework\TestCase {
         $this->assertEquals('Test', $alleBetalinger[1]->melding);
         $this->assertEquals(123, $alleBetalinger[1]->kontonummer);
         $this->assertEquals(1, $alleBetalinger[1]->avventer);
-    }
-    
+    }   
+
     
 
 }   
