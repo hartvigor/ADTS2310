@@ -10,7 +10,7 @@ class adminRegistrerKundeTest extends PHPUnit\Framework\TestCase
         $admin = new Admin(new AdminDBStub());
         
         $kunde = new kunde();
-        $kunde->personnummer = "12889191";
+        $kunde->personnummer = "12889167891";
         $kunde->fornavn = "Melfyn";
         $kunde->etternavn = "Sir Jenkins";
         $kunde->adresse = "Tindergata 1";
@@ -26,6 +26,27 @@ class adminRegistrerKundeTest extends PHPUnit\Framework\TestCase
         $this->assertEquals("Ok", $res);
         
     }
+    
+    function testKundeEksisterer()
+    {
+        $admin = new Admin(new AdminDBStub());
+        
+        $kunde = new kunde();
+        $kunde->personnummer = "01010122344";
+        $kunde->fornavn = "Per";
+        $kunde->etternavn = "Olsen";
+        $kunde->adresse = "Osloveien 82";
+        $kunde->postnr = "0270";
+        $kunde->poststed = "Oslo";
+        $kunde->telefonnr = "12345678";
+        $kunde->passord = "TESTST";
+        
+        $res = $admin->registrerKunde($kunde);
+        
+        $this->assertEquals("Feil", $res);
+
+    }
+    
 }
 
 
