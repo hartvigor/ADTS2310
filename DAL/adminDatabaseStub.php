@@ -54,6 +54,23 @@ class AdminDBStub
        return $alleKunder;
     }
     
+    function slettKunde($persNr)
+    {
+        $eksPersNr = "01010110523";
+        if ($persNr == $eksPersNr)
+        {
+            return "Ok";
+        }
+        else
+        {
+            return "Feil";
+        }
+        //sjekk om bruker eksister
+            //returner ok hvis ekisterer
+        //returner feil
+    }
+
+
     function registrerKunde($kunde)
     {
         $persNr = array("01010122344", "12345678901");
