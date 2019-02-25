@@ -2,13 +2,22 @@
     include_once '../Model/domeneModell.php';
     class BankDBStub
     {
-        function endreKundeInfo($personnummer, $navn, $adresse, $telefonnr){
-            $enKunde = new kunde();
-            $enKunde-> personnummer = $personnummer;
-            $enKunde->navn = $navn;
-            $enKunde->adresse = $adresse;
-            $enKunde->telefonnr= $telefonnr;
-            return $enKunde;            
+        function endreKundeInfo($kunde){
+            switch ($kunde->personnummer) {
+                case 12345678:
+                    $enKunde = new kunde();
+                    $enKunde->personnummer = "12345678";
+                    $enKunde->fornavn = "Per";
+                    $enKunde->etternavn = "Olsen";
+                    $enKunde->adresse = "Osloveien 82";
+                    $enKunde->postnr = "1234";
+                    $enKunde->poststed = "Oslo";
+                    $enKunde->telefonnr = "12345678";
+                    $enKunde->passord = "HeiHei";
+                    return "OK";
+               default:
+                    return "Feil";
+            }                           
         }
         
         function hentKundeInfo($personnummer)
@@ -27,7 +36,7 @@
                     $enKunde->telefonnr = "12345678";
                     $enKunde->passord = "HeiHei";
                     return $enKunde;                    
-                case 01010122344:
+                case 010101223444:
                     return "Feil postnummer";
                 default:
                     break;

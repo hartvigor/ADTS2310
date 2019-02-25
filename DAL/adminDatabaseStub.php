@@ -4,7 +4,7 @@ include_once '../Model/domeneModell.php';
 
 class AdminDBStub
 {
-    private $db;
+    /*private $db;
     function __construct($innDb=null)
     {
         if($innDb==null)
@@ -15,7 +15,7 @@ class AdminDBStub
         {
             $this->db=$innDb;
         }
-    }
+    }*/
     
     // Usikker på om dette er riktig
     function endreKundeinfo(){
@@ -53,6 +53,39 @@ class AdminDBStub
        //$alleKunder[]=$kunde3;
        return $alleKunder;
     }
+    
+    function registrerKunde($kunde)
+    {
+        $persNr = array("01010122344", "12345678901");
+        
+        if (in_array($kunde->personnummer, $persNr))
+        {
+            return "Feil";
+        }
+        else
+        {
+            return "Ok";
+        }
+        
+        return "Feil";
+    }
+    
+    function registerKonto($konto)
+    {
+        $persNr = "01010122344";
+        $eksKonto = "120302010113";
+        
+        if ($konto->personnummer != $persNr)
+        {
+            return "Feil";
+        }
+        if ($konto->kontonummer == $eksKonto)
+        {
+            return "Feil";
+        }
+        return "Ok";        
+    }
+    
     
     
     function endreKonto($konto)
@@ -107,4 +140,48 @@ class AdminDBStub
         
         return "Feil i kontonummer";
     }
+    
+    function hentAlleKonti()
+    {
+        $konti = array();
+        $k1 = new konto();
+        $k1->kontonummer = "105010123456";
+        $k1->personnummer = "01010110523";
+        $k1->saldo = "720";
+        $k1->type = "Lønnskonto";
+        $k1->valuta = "NOK";
+        array_push($konti, $k1);
+        
+        $k1 = new konto();
+        $k1->kontonummer = "105020123456";
+        $k1->personnummer = "01010110523";
+        $k1->saldo = "100500";
+        $k1->type = "Sparekonto";
+        $k1->valuta = "NOK";
+        array_push($konti, $k1);
+        
+        $k1 = new konto();
+        $k1->kontonummer = "22334412345";
+        $k1->personnummer = "01010110523";
+        $k1->saldo = "10234.5";
+        $k1->type = "Brukskonto";
+        $k1->valuta = "NOK";
+        array_push($konti, $k1);
+        return $konti;
+    }
+    
+    function slettKonto($kontonummer)
+    {
+        $eksKnr = "010101234567";
+        if ($eksKnr != $kontonummer)
+        {
+            return "Feil";
+        }
+        //sjekk om kontonr eksisterer
+            // ret feil hvis ikke eksisterer
+        
+        return "Ok";
+        
+    }
+    
 }
