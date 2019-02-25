@@ -18,12 +18,12 @@ class AdminDBStub
     }
     
     // Usikker på om dette er riktig
-    function TestEndreKundeInfo($personnummer, $navn, $adresse, $telefonnr){
+    function endreKundeinfo(){
             $enKunde = new kunde();
-            $enKunde-> personnummer = $personnummer;
-            $enKunde->navn = $navn;
-            $enKunde->adresse = $adresse;
-            $enKunde->telefonnr = $telefonnr;
+            $enKunde-> personnummer = "01010110523";
+            $enKunde->navn = "Lene Jensen";
+            $enKunde->adresse = "Askerveien 22";
+            $enKunde->telefonnr = "22224444";
             return $enKunde;    
     }
 
