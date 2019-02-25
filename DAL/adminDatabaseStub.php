@@ -70,6 +70,22 @@ class AdminDBStub
         return "Feil";
     }
     
+    function registerKonto($konto)
+    {
+        $persNr = "01010122344";
+        $eksKonto = "120302010113";
+        
+        if ($konto->personnummer != $persNr)
+        {
+            return "Feil";
+        }
+        if ($konto->kontonummer == $eksKonto)
+        {
+            return "Feil";
+        }
+        return "Ok";        
+    }
+    
     
     
     function endreKonto($konto)
