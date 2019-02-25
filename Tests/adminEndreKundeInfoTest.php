@@ -3,12 +3,33 @@ include_once '../Model/domeneModell.php';
 include_once '../BLL/adminLogikk.php';
 
 class adminEndreKundeInfoTest extends PHPUnit\Framework\TestCase{
-    public function testAdminEndreKundeInfo(){
+    function testAdminEndreKundeInfo(){
         // Arrange
-        $personnummer = 01010122344;
-        $bank = new Bank(new DBStub());     
-        // Act
-        // Assert
+        $admin = new Admin(new AdminDBStub());
+        
+        $kunde = new kunde();
+        $kunde->personnummer = "01010110523";
+        $kunde->navn = "Lene Jensen";
+        $kunde->adresse = "Persbråten 4";
+        $kunde->telefonnr = "347654334";
+        
+        $res = $admin->endreKundeInfo($kunde);
+        $this->assertEquals("Ok", $res);
+        
+    }
+    
+    function testEndreKundeIntoFeilPersNr()
+    {
+        $admin = new Admin(new AdminDBStub());
+        
+        $kunde = new kunde();
+        $kunde->personnummer = "35803849503";
+        $kunde->navn = "Lene Jensen";
+        $kunde->adresse = "Persbråten 4";
+        $kunde->telefonnr = "347654334";
+        
+        $res = $admin->endreKundeInfo($kunde);
+        $this->assertEquals("Feil", $res);
     }
     
 }

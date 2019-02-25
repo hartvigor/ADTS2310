@@ -18,13 +18,25 @@ class AdminDBStub
     }*/
     
     // Usikker på om dette er riktig
-    function endreKundeinfo(){
+    function endreKundeinfo($kunde)
+    {
             $enKunde = new kunde();
             $enKunde-> personnummer = "01010110523";
             $enKunde->navn = "Lene Jensen";
             $enKunde->adresse = "Askerveien 22";
             $enKunde->telefonnr = "22224444";
-            return $enKunde;    
+            
+            if ($enKunde->personnummer == $kunde->personnummer)
+            {
+                $enKunde->navn = $kunde->navn;
+                $enKunde->adresse = $kunde->adresse;
+                $enKunde->telefonnr = $kunde->telefonnr;
+                return "Ok";
+            }
+            else
+            {
+                return "Feil";
+            }
     }
 
     function hentAlleKunder()
