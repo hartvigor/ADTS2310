@@ -56,7 +56,7 @@ class AdminDBStub
     
     function registrerKunde($kunde)
     {
-        $persNr = array(01010110523, 12345678901);
+        $persNr = array("01010122344", "12345678901");
         
         if (in_array($kunde->personnummer, $persNr))
         {
@@ -123,5 +123,34 @@ class AdminDBStub
         }
         
         return "Feil i kontonummer";
+    }
+    
+    function hentAlleKonti()
+    {
+        $konti = array();
+        $k1 = new konto();
+        $k1->kontonummer = "105010123456";
+        $k1->personnummer = "01010110523";
+        $k1->saldo = "720";
+        $k1->type = "Lønnskonto";
+        $k1->valuta = "NOK";
+        array_push($konti, $k1);
+        
+        $k1 = new konto();
+        $k1->kontonummer = "105020123456";
+        $k1->personnummer = "01010110523";
+        $k1->saldo = "100500";
+        $k1->type = "Sparekonto";
+        $k1->valuta = "NOK";
+        array_push($konti, $k1);
+        
+        $k1 = new konto();
+        $k1->kontonummer = "22334412345";
+        $k1->personnummer = "01010110523";
+        $k1->saldo = "10234.5";
+        $k1->type = "Brukskonto";
+        $k1->valuta = "NOK";
+        array_push($konti, $k1);
+        return $konti;
     }
 }
