@@ -10,11 +10,15 @@ class adminEndreKundeInfoTest extends PHPUnit\Framework\TestCase{
         $kunde = new kunde();
         $kunde->personnummer = "01010110523";
         $kunde->navn = "Lene Jensen";
-        $kunde->adresse = "Persbråten 4";
-        $kunde->telefonnr = "347654334";
+        $kunde->adresse = "Askerveien 22";
+        $kunde->telefonnr = "22224444";
         
         $res = $admin->endreKundeInfo($kunde);
-        $this->assertEquals("Ok", $res);
+
+        $this->assertEquals("01010110523", $endretKundeinfo->personnummer);
+        $this->assertEquals("Lene Jensen", $endreKundeinfo->navn);
+        $this->assertEquals("Askerveien 22", $endretKundeinfo->adresse);
+        $this->assertEquals("22224444", $endretKundeinfo->telefonnr);
         
     }
     
@@ -25,8 +29,8 @@ class adminEndreKundeInfoTest extends PHPUnit\Framework\TestCase{
         $kunde = new kunde();
         $kunde->personnummer = "35803849503";
         $kunde->navn = "Lene Jensen";
-        $kunde->adresse = "Persbråten 4";
-        $kunde->telefonnr = "347654334";
+        $kunde->adresse = "Askerveien 22";
+        $kunde->telefonnr = "22224444";
         
         $res = $admin->endreKundeInfo($kunde);
         $this->assertEquals("Feil", $res);

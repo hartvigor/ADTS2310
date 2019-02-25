@@ -31,7 +31,7 @@ class AdminDBStub
                 $enKunde->navn = $kunde->navn;
                 $enKunde->adresse = $kunde->adresse;
                 $enKunde->telefonnr = $kunde->telefonnr;
-                return "Ok";
+                return $enKunde;
             }
             else
             {
