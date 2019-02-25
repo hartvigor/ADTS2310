@@ -169,4 +169,19 @@ class AdminDBStub
         array_push($konti, $k1);
         return $konti;
     }
+    
+    function slettKonto($kontonummer)
+    {
+        $eksKnr = "010101234567";
+        if ($eksKnr != $kontonummer)
+        {
+            return "Feil";
+        }
+        //sjekk om kontonr eksisterer
+            // ret feil hvis ikke eksisterer
+        
+        return "Ok";
+        
+    }
+    
 }
