@@ -176,6 +176,9 @@
             elseif ($personnummer == "01010110523" && $passord != "Hei"){
                 return "Feil i passord";
             }
+            return "Shit show!";
         }
         
     }
+    
+    ?>
