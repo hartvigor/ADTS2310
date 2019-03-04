@@ -57,6 +57,24 @@ class sjekkLoggInnTest extends PHPUnit\Framework\TestCase
         
         $this->assertEquals($res, "Feil i passord");
     }
+    
+    function testFeilPersnummerBankLogikk()
+    {
+        /*Hvis man tester med fler enn 11 sifferet, vil ikke testen få returnert
+          "Feil i personnummer". Dette er fordi regEx'en er feil. Så lenge man har
+          med 11 siffer, kan man skrive hva man vil etter dette. Det gjør at
+          systemet er sårbart med tanke på SQL-injection.        */
+        //arange
+        $personnummer = "1234";
+        $passord = "HeiHei";
+        
+        $bank = new Bank(new BankDBStub());
+        
+        //act
+        $res = $bank->sjekkLoggInn($personnummer, $passord);
+        //assert
+        $this->assertEquals($res, "Feil i personnummer");
+    }
 }
 ?>
 
