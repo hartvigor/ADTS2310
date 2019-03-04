@@ -57,6 +57,35 @@ class sjekkLoggInnTest extends PHPUnit\Framework\TestCase
         
         $this->assertEquals($res, "Feil i passord");
     }
+    
+    function testFeilPersnummerErBokstaverrBankLogikk()
+    {
+        //arange
+        $personnummer = "efesfsefsfe";
+        //$passord = "HeiHei";
+        $passord = "";
+        $bank = new Bank(new BankDBStub());
+
+        //act
+        $res = $bank->sjekkLoggInn($personnummer, $passord);
+        //assert
+        $this->assertEquals($res, "Feil i personnummer");
+    }
+    
+    function testFeilPassordLengdeBankLogikk()
+    {
+        //arange
+        $personnummer = "01010110523";
+        //$passord = "HeiHei";
+        $passord = "Meh";
+        $bank = new Bank(new BankDBStub());
+
+        //act
+        $res = $bank->sjekkLoggInn($personnummer, $passord);
+        //assert
+        $this->assertEquals($res, "Feil i personnummer");
+    }
+    
 }
 ?>
 
