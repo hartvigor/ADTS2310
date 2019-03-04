@@ -163,6 +163,7 @@
             }
             return $konto;
         }
+
         function sjekkLoggInn($personnummer, $passord){
 
             
@@ -176,4 +177,5 @@
                 return "Feil i passord";
             }
         }
+        
     }
