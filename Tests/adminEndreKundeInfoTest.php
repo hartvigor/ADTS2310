@@ -13,10 +13,10 @@ class adminEndreKundeInfoTest extends PHPUnit\Framework\TestCase{
         $kunde->adresse = "Askerveien 22";
         $kunde->telefonnr = "22224444";
         
-        $res = $admin->endreKundeInfo($kunde);
+        $endretKundeinfo = $admin->endreKundeInfo($kunde);
 
         $this->assertEquals("01010110523", $endretKundeinfo->personnummer);
-        $this->assertEquals("Lene Jensen", $endreKundeinfo->navn);
+        $this->assertEquals("Lene Jensen", $endretKundeinfo->navn);
         $this->assertEquals("Askerveien 22", $endretKundeinfo->adresse);
         $this->assertEquals("22224444", $endretKundeinfo->telefonnr);
         
