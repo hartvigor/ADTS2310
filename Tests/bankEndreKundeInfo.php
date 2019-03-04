@@ -32,4 +32,5 @@ class endreKundeInfo extends PHPUnit\Framework\TestCase {
 //        $this->assertEquals("98877665", $endretKunde->telefonnr);
 //        $this->assertEquals("Hei", $endretKunde->passord);
     }
+}
 

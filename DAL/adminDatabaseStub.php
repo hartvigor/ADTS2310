@@ -18,13 +18,25 @@ class AdminDBStub
     }*/
     
     // Usikker på om dette er riktig
-    function TestEndreKundeInfo($personnummer, $navn, $adresse, $telefonnr){
+    function endreKundeinfo($kunde)
+    {
             $enKunde = new kunde();
-            $enKunde-> personnummer = $personnummer;
-            $enKunde->navn = $navn;
-            $enKunde->adresse = $adresse;
-            $enKunde->telefonnr = $telefonnr;
-            return $enKunde;    
+            $enKunde-> personnummer = "01010110523";
+            $enKunde->navn = "Lene Jensen";
+            $enKunde->adresse = "Askerveien 22";
+            $enKunde->telefonnr = "22224444";
+            
+            if ($enKunde->personnummer == $kunde->personnummer)
+            {
+                $enKunde->navn = $kunde->navn;
+                $enKunde->adresse = $kunde->adresse;
+                $enKunde->telefonnr = $kunde->telefonnr;
+                return $enKunde;
+            }
+            else
+            {
+                return "Feil";
+            }
     }
 
     function hentAlleKunder()
@@ -54,6 +66,23 @@ class AdminDBStub
        return $alleKunder;
     }
     
+    function slettKunde($persNr)
+    {
+        $eksPersNr = "01010110523";
+        if ($persNr == $eksPersNr)
+        {
+            return "Ok";
+        }
+        else
+        {
+            return "Feil";
+        }
+        //sjekk om bruker eksister
+            //returner ok hvis ekisterer
+        //returner feil
+    }
+
+
     function registrerKunde($kunde)
     {
         $persNr = array("01010122344", "12345678901");
