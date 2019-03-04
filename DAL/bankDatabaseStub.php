@@ -163,4 +163,17 @@
             }
             return $konto;
         }
+        function sjekkLoggInn($personnummer, $passord){
+
+            
+            if ($personnummer == "010101105233" && $passord == "HeiHei"){
+                return "Logget inn";
+            }
+            elseif ($personnummer != "01010110523") {
+                return "Feil i personnummer";
+            }
+            elseif ($personnummer == "01010110523" && $passord != "Hei"){
+                return "Feil i passord";
+            }
+        }
     }
