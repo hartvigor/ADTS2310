@@ -4,7 +4,7 @@
     {
         function endreKundeInfo($kunde){
             switch ($kunde->personnummer) {
-                case 12345678:
+                case "12345678":
                     $enKunde = new kunde();
                     $enKunde->personnummer = "12345678";
                     $enKunde->fornavn = "Per";
