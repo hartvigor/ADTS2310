@@ -4,15 +4,15 @@
     {
         function endreKundeInfo($kunde){
             switch ($kunde->personnummer) {
-                case "12345678":
+                case 12345678:
                     $enKunde = new kunde();
                     $enKunde->personnummer = "12345678";
                     $enKunde->fornavn = "Per";
                     $enKunde->etternavn = "Olsen";
-                    $enKunde->adresse = "Oslovei 3";
-                    $enKunde->postnr = "0101";
+                    $enKunde->adresse = "Osloveien 82";
+                    $enKunde->postnr = "1234";
                     $enKunde->poststed = "Oslo";
-                    $enKunde->telefonnr = "98877665";
+                    $enKunde->telefonnr = "12345678";
                     $enKunde->passord = "HeiHei";
                     return "OK";
                default:
@@ -163,4 +163,21 @@
             }
             return $konto;
         }
+        
+        function sjekkLoggInn($personnummer, $passord){
+
+            
+            if ($personnummer == "010101105233" && $passord == "HeiHei"){
+                return "Logget inn";
+            }
+            elseif ($personnummer != "01010110523") {
+                return "Feil i personnummer";
+            }
+            elseif ($personnummer == "01010110523" && $passord != "Hei"){
+                return "Feil i passord";
+            }
+            return "Shit show!";
+        }
+        
     }
+    ?>
