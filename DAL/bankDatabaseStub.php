@@ -164,14 +164,18 @@
             return $konto;
         }
 
-        function hentSaldi($personnummer){        
-            $konto = new Konto();
-            $konto->personnummer = personnummer;
-            $saldo = array();
-            $saldo[0] = $konto->saldo = 420.00;
-            $saldo[1] = $konto->saldo = 1337.69;
-            $saldo[2] = $konto->saldo = 69.00;
-            return saldo; 
+        function hentSaldi($personnummer){
+            $saldi = array();
+            
+            $persNr = "01010122344";
+            if ($persNr == $personnummer)
+            {
+                array_push($saldi, 420.00);
+                array_push($saldi, 1337.69);
+                array_push($saldi, 69.00);
+            }
+           
+            return $saldi; 
         }
 
 
