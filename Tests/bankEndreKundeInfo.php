@@ -15,7 +15,7 @@ class endreKundeInfo extends PHPUnit\Framework\TestCase {
         $kunde->postnr = "0101";
         $kunde->poststed = "Oslo";
         $kunde->telefonnr = "98877665";
-        $kunde->passord = "Hei";
+        $kunde->passord = "HeiHei";
         
         $bank = new Bank(new BankDBStub());
 
