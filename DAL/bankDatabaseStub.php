@@ -9,10 +9,10 @@
                     $enKunde->personnummer = "12345678";
                     $enKunde->fornavn = "Per";
                     $enKunde->etternavn = "Olsen";
-                    $enKunde->adresse = "Osloveien 82";
-                    $enKunde->postnr = "1234";
+                    $enKunde->adresse = "Oslovei 3";
+                    $enKunde->postnr = "0101";
                     $enKunde->poststed = "Oslo";
-                    $enKunde->telefonnr = "12345678";
+                    $enKunde->telefonnr = "98877665";
                     $enKunde->passord = "HeiHei";
                     return "OK";
                default:
