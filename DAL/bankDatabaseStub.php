@@ -163,7 +163,18 @@
             }
             return $konto;
         }
-        
+
+        function hentSaldi($personnummer){        
+            $konto = new Konto();
+            $konto->personnummer = personnummer;
+            $saldo = array();
+            $saldo[1] = $konto->saldo = 420.00;
+            $saldo[2] = $konto->saldo = 1337.69;
+            $saldo[3] = $konto->saldo = 69.00;
+            return saldo; 
+        }
+
+
         function sjekkLoggInn($personnummer, $passord){
 
             
@@ -180,4 +191,5 @@
         }
         
     }
+    
     ?>
