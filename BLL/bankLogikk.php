@@ -29,7 +29,7 @@ class Bank
         {
             return "Feil i personnummer";
         }
-        //FEIL I REGEX HUSK RAPPORT (RETTE?)
+        //FEIL I REGEX HUSK RAPPORT (RETTE?) 
         if(!preg_match("/.{6,30}/", $passord))
         {
             return "Feil i passord";

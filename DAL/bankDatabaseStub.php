@@ -4,7 +4,7 @@
     {
         function endreKundeInfo($kunde){
             switch ($kunde->personnummer) {
-                case "12345678":
+                case 12345678:
                     $enKunde = new kunde();
                     $enKunde->personnummer = "12345678";
                     $enKunde->fornavn = "Per";
@@ -163,7 +163,7 @@
             }
             return $konto;
         }
-        
+
         function hentSaldi($personnummer){        
             $konto = new Konto();
             $konto->personnummer = personnummer;
@@ -173,4 +173,23 @@
             $saldo[3] = $konto->saldo = 69.00;
             return saldo; 
         }
+
+
+        function sjekkLoggInn($personnummer, $passord){
+
+            
+            if ($personnummer == "010101105233" && $passord == "HeiHei"){
+                return "Logget inn";
+            }
+            elseif ($personnummer != "01010110523") {
+                return "Feil i personnummer";
+            }
+            elseif ($personnummer == "01010110523" && $passord != "Hei"){
+                return "Feil i passord";
+            }
+            return "Shit show!";
+        }
+        
     }
+    
+    ?>
