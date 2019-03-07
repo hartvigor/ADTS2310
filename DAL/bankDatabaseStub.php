@@ -163,6 +163,45 @@
             }
             return $konto;
         }
+        
+        function registrerBetaling($kontoNr, $transaksjon)
+        {
+            $regBet = array();
+            $trans = new transaksjon();
+            $trans->txId = 12346787654345678;
+            $trans->fraTilKontonummer = "123424556543";
+            $trans->transaksjonBelop = 200;
+            $trans->belop = 200;
+            $trans->dato = "2016-03-01";
+            $trans->melding = "Bursdagspenger";
+            //lagt til kontonummer
+            $trans->kontonummer = "14467542312";
+            $trans->avventer = "nei";
+            array_push($regBet, $trans);
+            
+            $trans = new transaksjon();
+            $trans->txId = 78876545678987654456;
+            $trans->fraTilKontonummer = "548753982374";
+            $trans->transaksjonBelop = 400;
+            $trans->belop = 400;
+            $trans->dato = "2016-07-01";
+            $trans->melding = "Lønning";
+            //lagt til kontonummer
+            $trans->kontonummer = "14467542312";
+            $trans->avventer = "nei";
+            array_push($regBet, $trans);
+            
+            for ($i = 0; $i < count($regBet); $i++)
+            {
+                $t = $regBet[$i];
+                if ($t->txId == $transaksjon->txId)
+                {
+                    return "Feil";
+                }
+            }
+            return "Ok";
+            
+        }
 
         function hentSaldi($personnummer){
             $saldi = array();
