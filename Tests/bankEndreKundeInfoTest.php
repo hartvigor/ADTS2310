@@ -33,5 +33,27 @@ class bankEndreKundeInfoTest extends PHPUnit\Framework\TestCase {
 //        $this->assertEquals("98877665", $endretKunde->telefonnr);
 //        $this->assertEquals("Hei", $endretKunde->passord);
     }
+    public function testEndreKundeInfoFeil() 
+    {
+        // arrange
+        $personnummer = 12345678;
+        $bank = new Bank(new BankDBStub());
+        
+        $kunde = new kunde();
+        $kunde->personnummer = $personnummer;
+        $kunde->fornavn = "Per";
+        $kunde->etternavn = "Olsen";
+        $kunde->adresse = "Oslovei 3";
+        $kunde->postnr = "0101";
+        $kunde->poststed = "Oslo";
+        $kunde->telefonnr = "98877665";
+        $kunde->passord = "HeiHei";
+        
+        //act
+        $endretKunde = $bank->endreKundeInfo($kunde);
+        
+        // assert 
+        $this->assertEquals("Feil", $endretKunde);
+}
 }
 

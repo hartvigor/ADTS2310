@@ -15,8 +15,9 @@
                     $enKunde->telefonnr = "12345678";
                     $enKunde->passord = "HeiHei";
                     return "OK";
+                
                default:
-                    return "Feil";
+                    break;
             }                           
         }
         
