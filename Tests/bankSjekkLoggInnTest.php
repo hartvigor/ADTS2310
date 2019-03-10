@@ -29,28 +29,28 @@ class sjekkLoggInnTest extends PHPUnit\Framework\TestCase
         //act
         $res = $bank->sjekkLoggInn($personnummer, $passord);
         //assert
-        $this->assertEquals($res, "Feil i personnummer");
+        $this->assertEquals("Feil i personnummer", $res);
         
     }
     
-    function testFeilPassord(){
+   function testFeilDbPassord(){
         //arange
         $personnummer = "010101105233";
-        $passord = "loljeglikerboller";
+        $passord = "abc";
         
         $bank = new Bank(new BankDBStub());
         
         //act
         $res = $bank->sjekkLoggInn($personnummer, $passord);
         //assert
-        $this->assertEquals($res, "Feil i passord");
+        $this->assertEquals("Feil i passord" ,$res);
         
     }
     
-    function testFeilDbPOassord()
+    function testFeilLogikkPassord()
     {
-        $persNr = "01010110523";
-        $pass = "phperjalla";
+        $persNr = "01010110522";
+        $pass = "php";
         
         $bank = new Bank(new BankDBStub());
         $res = $bank->sjekkLoggInn($persNr, $pass);
@@ -81,8 +81,8 @@ class sjekkLoggInnTest extends PHPUnit\Framework\TestCase
     {
         //arange
         $personnummer = "efesfsefsfe";
-        //$passord = "HeiHei";
-        $passord = "";
+        $passord = "HeiHei";
+        
         $bank = new Bank(new BankDBStub());
 
         //act
@@ -94,7 +94,7 @@ class sjekkLoggInnTest extends PHPUnit\Framework\TestCase
     function testFeilPassordLengdeBankLogikk()
     {
         //arange
-        $personnummer = "01010110523";
+        $personnummer = "010101105233";
         //$passord = "HeiHei";
         $passord = "Meh";
         $bank = new Bank(new BankDBStub());
@@ -102,7 +102,22 @@ class sjekkLoggInnTest extends PHPUnit\Framework\TestCase
         //act
         $res = $bank->sjekkLoggInn($personnummer, $passord);
         //assert
-        $this->assertEquals($res, "Feil i personnummer");
+        $this->assertEquals($res, "Feil i passord");
+    }
+    
+    function testTestFeilet()
+    {
+         //arange
+        $personnummer = "Meh";
+        $passord = "a";
+        
+        
+        $bank = new Bank(new BankDBStub());
+
+        //act
+        $res = $bank->sjekkLoggInn($personnummer, $passord);
+        //assert
+        $this->assertEquals("feil", $res);
     }
     
 }

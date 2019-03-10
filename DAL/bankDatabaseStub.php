@@ -176,18 +176,34 @@
 
 
         function sjekkLoggInn($personnummer, $passord){
-
+            
             
             if ($personnummer == "010101105233" && $passord == "HeiHei"){
                 return "Logget inn";
             }
-            elseif ($personnummer != "01010110523") {
-                return "Feil i personnummer";
-            }
-            elseif ($personnummer == "01010110523" && $passord != "Hei"){
+            
+            elseif ($personnummer == "010101105233" && $passord != "HeiHei"){
                 return "Feil i passord";
             }
-            return "Shit show!";
+            
+            elseif ($personnummer != "01010110523" && $passord == "HeiHei") {
+                return "Feil i personnummer";
+            }
+            
+                return "feil";
+        }
+        
+        function hentKonti($personnummer){
+            $konto = new Konto();
+            $konto->personnummer = $personnummer;
+            $konti = array();
+            $konti[0] = 105010123456;
+            $konti[1] = 105010123457;
+            $konti[2] = 105010123458;
+            if ($personnummer == "12345678901"){
+                return $konti; 
+            }
+            return "feil";
         }
         
     }
