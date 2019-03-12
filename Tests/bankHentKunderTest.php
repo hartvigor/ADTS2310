@@ -34,16 +34,5 @@ class hentKundeInfoTest extends PHPUnit\Framework\TestCase {
         //assert
         $this->assertEquals("Feil personnummer", $kunder);
     }
-    
-    public function testFeilPostnrHentKundeInfo() 
-    {
-        //arange
-        $personnummer = 01010122344;
-        $bank = new Bank(new BankDBStub()); 
-        //act
-        $kunder = $bank->hentKundeInfo($personnummer);
-        //assert
-        $this->assertEquals("Feil postnummer", $kunder);
-    }
 }
 

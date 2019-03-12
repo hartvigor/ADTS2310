@@ -36,7 +36,7 @@ class bankEndreKundeInfoTest extends PHPUnit\Framework\TestCase {
     public function testEndreKundeInfoFeil() 
     {
         // arrange
-        $personnummer = 12345678;
+        $personnummer = 123456789;
         $bank = new Bank(new BankDBStub());
         
         $kunde = new kunde();

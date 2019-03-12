@@ -22,9 +22,7 @@
         
         function hentKundeInfo($personnummer)
         {
-            switch ($personnummer) {
-                case 010101223444: //ikke riktig 
-                    return "Feil personnummer";
+            switch ($personnummer) {                    
                 case 01010122344:
                     $enKunde = new kunde();
                     $enKunde->personnummer =$personnummer;
@@ -36,29 +34,13 @@
                     $enKunde->telefonnr = "12345678";
                     $enKunde->passord = "HeiHei";
                     return $enKunde;                    
-                case 010101223444:
-                    return "Feil postnummer";
                 default:
+                    return "Feil personnummer";
                     break;
             }
            
         }
-        
-        function hentEnKunde($personnummer)
-        {
-           $enKunde = new kunde();
-           $enKunde->personnummer =$personnummer;
-           $enKunde->fornavn = "Per";
-           $enKunde->etternavn = "Olsen";
-           $enKunde->adresse = "Osloveien 82";
-           $enKunde->postnr = 0270;
-           $enKunde->poststed = "Oslo";
-           $enKunde->telefonnr = "12345678";
-           $enKunde->passord = "HeiHei";
-           return $enKunde;
-        }
-        
-        
+                
         function hentBetalinger($personnummer){
             // hent alle betalinger for kontonummer som avventer betaling (lik 1)
             switch ($personnummer) {
@@ -102,8 +84,6 @@
 
                 default:
                     $alleBetalinger = Array();
-                    $betaling = new transaksjon();
-                    $alleBetalinger[] = $betaling;
                     return $alleBetalinger;
                     break;
             }

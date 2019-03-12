@@ -49,11 +49,11 @@ class sjekkLoggInnTest extends PHPUnit\Framework\TestCase
     
     function testFeilLogikkPassord()
     {
-        $persNr = "01010110522";
-        $pass = "php";
+        $personnummer = "010101105233";
+        $passord = "php";
         
         $bank = new Bank(new BankDBStub());
-        $res = $bank->sjekkLoggInn($persNr, $pass);
+        $res = $bank->sjekkLoggInn($personnummer, $passord);
         
         $this->assertEquals($res, "Feil i passord");
     }
@@ -105,15 +105,23 @@ class sjekkLoggInnTest extends PHPUnit\Framework\TestCase
         $this->assertEquals($res, "Feil i passord");
     }
     
-    function testTestFeilet()
+    function testTestFeilDBPassord()
     {
-         //arange
-        $personnummer = "Meh";
-        $passord = "a";
-        
+        $persNr = "010101105233";
+        $pass = "HeiTest";
         
         $bank = new Bank(new BankDBStub());
-
+        $res = $bank->sjekkLoggInn($persNr, $pass);
+        $this->assertEquals("Feil i passord", $res);
+    }
+    
+    function testTestLoginIkkeOk(){
+        // for å at alle tester i sjekkLoggInn skal feile 
+        $personnummer = "010101105232";
+        $passord = "Heitest";
+        
+        $bank = new Bank(new BankDBStub());
+        
         //act
         $res = $bank->sjekkLoggInn($personnummer, $passord);
         //assert
