@@ -209,8 +209,6 @@ class AdminDBStub
         //sjekk om kontonr eksisterer
             // ret feil hvis ikke eksisterer
         
-        return "Ok";
-        
+        return "Ok";       
     }
-    
 }
