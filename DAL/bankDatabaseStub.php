@@ -229,27 +229,8 @@
             return "feil";
         }
         
-        function utforBetaling($kontonummer, $transaksjon){
-            
-            $trans = new transaksjon();
-            $trans->txId = 12346787654345678;
-            $trans->fraTilKontonummer = "123424556543";
-            $trans->transaksjonBelop = 200;
-            $trans->belop = 200;
-            $trans->dato = "2016-03-01";
-            $trans->melding = "Bursdagspenger";
-            
-            $konto = new Konto();
-            $personnummer = "12345678900";
-            $kontonummer = $trans->fraTilKontonummer;
-            $saldo = 2000;
-            $type = "Brukskonto";
-            $valuta = "NOK";
-                  
-            
-            
-        } 
-        
+        function utforBetaling($TxID){
+                    
     }
-    
+}  
     ?>
