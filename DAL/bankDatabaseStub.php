@@ -230,7 +230,98 @@
         }
         
         function utforBetaling($TxID){
-                    
-    }
-}  
+            $feil = true;
+            $transaksjoner = array();
+
+            $transaksjon = new transaksjon();
+            $transaksjon->txId = 1;
+            $transaksjon->fraTilKontonummer = 20102012345;
+            $transaksjon->transaksjonBelop = -100.5;
+            $transaksjon->belop = -100.5;
+            $transaksjon->dato = "2015-03-15";
+            $transaksjon->melding = "Meny Storo";
+            $transaksjon->kontonummer = 105010123456;
+            $transaksjon->avventer = 0;
+            array_push($transaksjoner, $transaksjon);
+
+            $transaksjon = new transaksjon();
+            $transaksjon->txId = 2;
+            $transaksjon->fraTilKontonummer = 20102012345;
+            $transaksjon->transaksjonBelop = 400.4;
+            $transaksjon->belop = 400.4;
+            $transaksjon->dato = "2015-03-20";
+            $transaksjon->melding = "Innbetaling";
+            $transaksjon->kontonummer = 105010123456;
+            $transaksjon->avventer = 0;
+            array_push($transaksjoner, $transaksjon);
+
+            $transaksjon = new transaksjon();
+            $transaksjon->txId = 3;
+            $transaksjon->fraTilKontonummer = 20102012345;
+            $transaksjon->transaksjonBelop = -1400.7;
+            $transaksjon->belop = -1400.7;
+            $transaksjon->dato = "2015-03-13";
+            $transaksjon->melding = "Husleie";
+            $transaksjon->kontonummer = 55551166677;
+            $transaksjon->avventer = 1;
+            array_push($transaksjoner, $transaksjon);
+
+            $transaksjon = new transaksjon();
+            $transaksjon->txId = 6;
+            $transaksjon->fraTilKontonummer = 12312345;
+            $transaksjon->transaksjonBelop = 1234;
+            $transaksjon->belop = 1234;
+            $transaksjon->dato = "2012-12-12";
+            $transaksjon->melding = "Melding";
+            $transaksjon->kontonummer = 234567;
+            $transaksjon->avventer = 1;
+            array_push($transaksjoner, $transaksjon);
+
+            $kontoNr = null;
+            for ($i = 0; $i < count($transaksjoner); $i++)
+            {
+                if ($transaksjoner[$i]->txId == $TxID)
+                {
+                    $feil = false;
+                    $kontoNr = $transaksjoner[$i]->fraTilKontonummer;
+                    break;
+                }
+            }
+
+            $kontoer = array();
+
+            $konto = new konto();
+            $konto->personnummer = 01010110523;
+            $konto->kontonummer = 20102012345;
+            $konto->saldo = 10234.5;
+            $konto->type = "Brukskonto";
+            $konto->valuta = "NOK";
+            array_push($kontoer, $konto);
+
+            $kontoEksisterer = false;
+            for ($i = 0; $i < count($kontoer); $i++)
+            {
+                if ($kontoer[$i]->kontonummer == $kontoNr)
+                {
+                    $kontoEksisterer = true;
+                    break;
+                }
+            }
+            
+            if ($kontoEksisterer == false)
+            {
+                $feil = true;
+            }
+
+            if ($feil == false)
+            {
+                return "OK";
+            }
+            else
+            {
+                return "Feil";
+            }
+
+        }
+    }  
     ?>
